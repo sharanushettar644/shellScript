@@ -2,16 +2,13 @@
 a=$1
 b=$2
 c=$3
-if [ $c == "add" ]
+if [ $b == "add" ]
 then 
-	expr $a + $b
-elif [ $c == "sub" ]
+	d=`expr $a + $c`
+	echo $d
+elif [ $b == "sub" ]
 then 
-	expr $a - $b
-elif [ $c == "mul" ]
-then 
-	expr $a \* $b
-
-else
-	expr $a / $b
+	e=`expr $a - $c`	
+	echo $e
 fi
+
