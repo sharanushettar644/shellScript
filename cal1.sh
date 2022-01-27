@@ -11,4 +11,7 @@ then
 	e=`expr $a - $c`	
 	echo $e
 fi
+<<<<<<< HEAD
 
+=======
+>>>>>>> b05a33e9f284e1a5481eef4ec6a4a514f03198ca
