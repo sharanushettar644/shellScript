@@ -1,10 +1,10 @@
 #!/bin/bash
 echo "Enter the Principal Amount"
-read a
+a=$1
 echo "Enter the Rate of intrest"
-read b
+b=$2
 echo "Enter the time"
-read c
+c=$3
 echo "result"
 expr $a \* $b \*  $c / 100 
 
