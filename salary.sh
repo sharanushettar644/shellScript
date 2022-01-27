@@ -1,6 +1,5 @@
 #!/bin/bash
-echo "Enter the basic salary"
-read bas
+bas=$1
 dp=`expr $bas / 2`
 a=`expr $dp + $bas`
 da=`expr $a \* 35 / 100 `
