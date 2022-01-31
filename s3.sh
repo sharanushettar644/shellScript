@@ -1,5 +1,5 @@
 #! /usr/bin/bash
-bucketname=`sharan-s3-from-jenkins`
+bucketname=sharan-s3-from-jenkins
 function createbucket()
    {
 	       aws s3api  create-bucket --bucket $bucketname --region us-west-2
