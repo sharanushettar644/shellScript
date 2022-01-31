@@ -1,4 +1,5 @@
 #!/bin/bash
+bas=10000
 dp=`expr $bas / 2`
 a=`expr $dp + $bas`
 da=`expr $a \* 35 / 100 `
