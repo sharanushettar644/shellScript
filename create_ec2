@@ -1,2 +1,2 @@
-#!/bin/bash
+!/bin/sh
 aws ec2 run-instances --image-id  ami-06cffe063efe892ad  --count 1 --instance-type t1.micro --key-name Demo PublicKey --security-groups-ids sg-5589785e --region us-west-2
