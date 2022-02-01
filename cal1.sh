@@ -10,5 +10,7 @@ elif [[ $b == "sub" ]]
 then 
 	e=`expr $a - $c`	
 	echo $e
+else
+	echo "failed"
 fi
 
