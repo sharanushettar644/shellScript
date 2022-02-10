@@ -1,5 +1,5 @@
 echo -n "Enter number: "
-read n
+n=$1
  
 len=$(echo $n | wc -c)
 len=$(( $len - 1 ))
