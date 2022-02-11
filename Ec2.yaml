@@ -1,0 +1,6 @@
+Resources:
+  WebAppInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0341aeea105412b57 # ImageID valid only in us-east-1 region
+      InstanceType: t2.micro

@@ -1,0 +1,55 @@
+Type: AWS::IAM::User
+Properties: 
+  Groups: 
+    - CFTest_sharan
+  LoginProfile: 
+    LoginProfile
+  ManagedPolicyArns: 
+    - arn:aws:iam::aws:policy/AmazonS3FullAccess
+  Path: '/'
+  Policies: 
+    - Policy
+  Tags: 
+    - Tag
+  UserName: CFTest_sharan
+
+
+
+
+
+---
+Version: '2012-10-17'
+Statement:
+- Effect: Allow
+  Action:
+  - s3:*
+  - s3-object-lambda:*
+  Resource: "*"
+
+
+
+
+Resources:
+  Test-CF-sharan:
+    Type: 'AWS::IAM::ManagedPolicy'
+    Properties:
+      ManagedPolicyName: customerManagedEC2ReadOnlyPolicy # give a name to this policy
+      Description: Customer managed policy for read only access to EC2 instance
+      Path: '/'
+      PolicyDocument: # (required) JSON policy document 
+        Version: '2012-10-17'
+        Statement: # allow read only access to EC2 instance
+          - Effect: Allow
+            Action: 
+              - 'ec2:Describe'
+            Resource: '*'
+      # IAM entities (Groups, Roles, and Users) are optional properties
+      Users: # attach this policy to the list of existing users
+          - userA
+          - userB
+      Groups: # attach this policy to the list of existing groups
+          - groupA
+          - groupB
+      Roles: # attach this policy to the list of existing roles
+          - roleA
+          - roleB

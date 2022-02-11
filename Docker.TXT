@@ -1,0 +1,52 @@
+To create get image
+docker pull sf
+
+To create install ----contener
+docker run -it sf-nm
+docker run -itd sf-nm
+
+To remove conter 
+docker rm id
+
+to remove image
+docker rmi id
+
+to run contener
+docker exec -it sf bash 
+docker exec -id sf bash
+
+to rename sf in contener
+docker rename oldname newname
+
+to rename and run one more contener
+docker run -itd --name newname imagename/imgid
+
+
+to start
+docker start cont-id
+
+to stop 
+docker stop cont-id
+
+
+
+To custium docker
+create Dockerfile
+---
+FROM ubuntu
+RUN update
+RUN apt install python -y
+
+
+to run ths command
+docker build -t sharan .
+
+163000
+9686711738
+
+161500
+ 28000
+9916835525
+
+
+

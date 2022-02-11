@@ -1,0 +1,23 @@
+FROM ubuntu
+RUN apt update
+RUN apt install wget -y
+RUN apt install curl -y
+RUN apt install default-jdk -y
+RUN apt install zip -y
+RUN apt install unzip -y
+RUN apt install git -y
+RUN apt update
+WORKDIR  maven
+RUN apt install maven -y
+RUN git clone https://github.com/sharanushettar644/shellScript.git
+WORKDIR /maven/shellScript/web_site
+RUN mvn clean install
+WORKDIR tomcat
+RUN wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.16/bin/apache-tomcat-10.0.16.zip
+RUN unzip apache-tomcat-10.0.16.zip
+RUN cp /maven/shellScript/web_site/target/web_site.war /maven/shellScript/web_site/tomcat/apache-tomcat-10.0.16/webapps
+EXPOSE 8080
+#CMD ["/maven/shellScript/web_site/tomcat/apache-tomcat-10.0.16/bin/catalina.sh","run"]
+RUN docker volume create locat_path
+RUN docker volume inspect locat_path
+RUN docker run -it -v locat_path:/cont_path
