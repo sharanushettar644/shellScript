@@ -1,0 +1,98 @@
+
+1] Write a shell script to print like below
+
+ free -m | awk 'NR == 2 {print "Current Memory Utilization is : " $3/$2*100}'
+
+ df -h | awk 'NR == 2 {print "sdisk Memory Utilization is : " $3/$2*100}'
+
+top -bn1 | grep load | awk '{printf "CPU Load: %.2f\n", $(NF-2)}'
+
+
+
+2] Script to Delete Old Files size larger than 10MB
+
+#!/bin/bash
+d= date "+%d"
+s= date --date="3 days ago"
+
+for i in *
+do
+        if [ -f $i ]
+        then
+        if [ $d -gt $s ]
+        then
+         find ./ -size +10M
+        fi
+        fi
+
+done
+
+
+
+3] Script to Delete Old Files older than 3 days
+
+#!/bin/bash
+a=`find -type f -mtime -3`
+echo $a
+for x in $a
+do
+        if [ -f $x ]
+        then
+                echo "File $x is older than 3 days so it will be deleted"
+        else
+                echo "File $x is not older than 3 days"
+        fi
+
+
+4] Hostaname
+
+#!/bin/bash
+echo "Enter the Hostname"
+read a
+b='machi'
+c='sooraj'
+d='sharan'
+if [ $a == $b ]
+then
+        ssh ubuntu@34.221.21.76
+elif [ $a == $c ]
+then
+        ssh ubuntu@35.86.129.93
+elif [ $a == $d ]
+then
+        ssh ubuntu@54.184.33.88
+fi
+
+
+
+5] write a script to install  mongodb , tomcat , redis , mysqlDB , maven.
+
+#!/bin/bash
+sudo apt install mongodb -y
+sudo apt install tomcat -y
+sudo apt install redis -y
+sudo apt install mysql -y
+sudo apt install maven -y
+
+
+
+6] Write a shell script to take a input from the user, input is filename. Find the path in which that file presents.
+#!/bin/bash
+echo "Enter the path"
+read a
+locate $a
+
+
+
+7] Status on Total Number of Files in a folder.
+
+#!/bin/bash
+echo "Total num of file in dir"
+ls -l | wc -l
+
+
+ 8]Send me the list of all the files names with space and date
+
+#!/bin/bash
+ls -l | awk '{print $9 " " $5 "MB" " " $6 date + "%d""-" $7 date +"%m -%Y" }'
+
