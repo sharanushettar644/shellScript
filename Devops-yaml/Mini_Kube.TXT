@@ -1,0 +1,31 @@
+https://www.linuxtechi.com/how-to-install-minikube-on-ubuntu/
+-create yml file
+-kubectl apply -f demo.yml
+-kubectl get nodes
+-kubectl get pods
+
+
+- kubectl get pods
+
+- kubectl get pods in group1
+    kubectl get pods -n group1
+
+- kubectl delete [podname]
+
+- kubectl describe podname
+
+- kubectl apply -f file.yml
+
+- kubectl create -n (name)
+
+- kubectl config view
+	configuration file
+
+- kubectl get services   
+
+- kubectl delete -f ./pod.json  
+
+- kubectl logs my-pod  
+
+- kubectl run nginx --image=nginx -n mynamespace      # Start a single instance of nginx pod in the namespace of mynamespace
+

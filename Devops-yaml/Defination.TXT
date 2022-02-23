@@ -1,0 +1,2 @@
+-pod: Is nothing but docker container
+-api: Any outside user or node want to communicate with pod/node 

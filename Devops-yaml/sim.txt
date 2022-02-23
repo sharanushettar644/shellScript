@@ -1,0 +1,88 @@
+aws eks --region <region> create-cluster --name <clusterName> --role-arn <EKS-role-ARN> --resources-vpc-config subnetIds=<subnet-id-1>,<subnet-id-2>,<subnet-id-3>,securityGroupIds=<security-group-id>
+
+
+
+aws eks --region us-west-2 create-cluster --name sharan --role-arn arn:aws:iam::883195043912:role/sharan_eks --resources-vpc-config subnetIds=subnet-0a0a45526f282fac4,subnet-0af19b3f81b44cef7,subnet-053661fc920de764d,securityGroupIds=sg-0c84a2454bfe739ec
+
+aws eks --region us-west-2 update-kubeconfig --name machi-eks
+
+aws eks --region us-west-2 update-kubeconfig --name sharanEks
+
+
+subnet-ae2552f3 
+
+aws eks --region us-west-2 create-cluster --name sharanEks --role-arn arn:aws:iam::883195043912:role/sharanEks --resources-vpc-config  subnetIds=subnet-01822e3116d58aa22,subnet-0bff48b745e8f59c4,subnet-01b68672fb49dac41,securityGroupIds=sg-09089cfb0cd6d31ef
+
+aws eks register-cluster \
+     --name machendra-eks \
+     --connector-config roleArn=arn:aws:iam::883195043912:role/sharan_eks,provider="OTHER" \
+     --region us-west-2
+
+
+aws eks describe-cluster --name machendra-eks --query "cluster.identity.oidc.issuer" --output text
+
+
+
+
+
+
+aws eks register-cluster --name external-k8s-cluster \
+--connector-config provider=EC2,roleArn=arn:aws:iam::1234567890:role/eks-connector-agent
+
+
+aws eks register-cluster --name machendra-eks \
+--connector-config provider=EC2,roleArn=arn:aws:iam::883195043912:role/sharanEks-connector-agent
+
+role_arn = arn:aws:iam::883195043912:role/sharanEks
+region = us-west-2
+source_profile = machi-mini-k8s
+
+aws eks describe-cluster --name machendra-eks --query "cluster.identity.oidc.issuer" --output text --profile ci-env
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Iam role sharaneks
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Principal": {
+				"Service": "ec2.amazonaws.com"
+			},
+			"Action": "sts:AssumeRole"
+		},
+		{
+			"Effect": "Allow",
+			"Principal": {
+				"Service": "eks.amazonaws.com"
+			},
+			"Action": "sts:AssumeRole"
+		}
+	]
+}
+
+
+
+

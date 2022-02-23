@@ -1,0 +1,71 @@
+https://logz.io/blog/amazon-eks-cluster/
+
+
+sudo apt update
+
+- install aws cli
+sudo apt install awscli
+
+-install kubectl [follow this  link]
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
+- create role and attach policy of eks
+	AmazonEKSClusterPolicy 
+	AmazonEKSServicePolicy
+ 
+- Creating a VPC for EKS
+- in cloud formation create stack by using below link
+https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2019-01-
+09/amazon-eks-vpc-sample.yaml
+Copy
+
+- Creating the EKS cluster
+ use this template 
+aws eks --region <region> create-cluster --name <clusterName> --role-arn <EKS-role-ARN> --resources-vpc-config subnetIds=<subnet-id-1>,<subnet-id-2>,<subnet-id-3>,securityGroupIds=<security-group-id>  
+
+:subnetids and security can refer in cloudfromation
+
+- Once the status changes to “ACTIVE”, we can proceed with updating our kubeconfig file with the information on the new cluster so kubectl can communicate with it.
+	Template: aws eks --region us-east-1 update-kubeconfig --name demo
+- kubectl get svc
+
+- Step 4: Launching Kubernetes worker nodes
+- Now that we’ve set up our cluster and VPC networking, we can now launch Kubernetes worker nodes. To do this, we will again use a CloudFormation template.
+  Template: https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2019-01-09/amazon-eks-nodegroup.yaml
+
+
+
+To connect EKS Cluster :
+admin should give permission to user in -> kubectl edit -n kube-system configmap/aws-auth
+
+https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html
+
+apiVersion: v1
+data:
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      rolearn: arn:aws:iam::883195043912:role/machi-eks
+      username: system:node:{{EC2PrivateDNSName}}
+  mapUsers: |
+    - userarn: arn:aws:iam::883195043912:user/soorajynaik036@gmail.com
+      username: soorajynaik036@gmail.com
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::883195043912:user/kurubamachendrappa025@gmail.com
+      username: kurubamachendrappa025@gmail.com
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::883195043912:user/sharanushettar644@gmail.com
+      username: sharanushettar644@gmail.com
+      groups:
+        - system:masters
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2022-02-19T07:27:03Z"
+  name: aws-auth
+  namespace: kube-system
+  resourceVersion: "7311"
+  uid: 765440c8-d58f-4905-9491-455b57759abb
+
