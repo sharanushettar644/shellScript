@@ -1,0 +1,13 @@
+ajay manager account 45000
+ajay manager account 45000
+charan clerk account 25000
+charan clerk account 25000
+varun manager sales 50000
+varun manager sales 50000
+amit manager account 47000                                                                                                    tarun peon sales 15000
+deepak clerk sales 23000                                                                                                     amit manager account 47000                                                                                                    tarun peon sales 15000
+deepak clerk sales 23000
+chara0
+chara0
+satvik director purchase 80000
+satvik director purchase 80000

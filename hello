@@ -1,0 +1,6 @@
+echo " hello world"
+pwd
+ls
+echo " hello world"
+pwd
+ls
