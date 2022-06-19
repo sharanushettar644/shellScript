@@ -1,7 +1,7 @@
 #!/bin/bash
-a=$1
-b=$2
-c=$3
+a=10
+b='add'
+c=30
 if [[ $b == "add" ]]
 then 
 	d=`expr $a + $c`
